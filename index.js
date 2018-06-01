@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const bott = new Discord.Client();
 
-bott.login("NDUxMDcxMzgyNTcxNDUwMzg4.De8-2w.oFtP07SIKevzQGJKSd7hYjlbqPQ");
+bott.login(process.env.TOKEN);
 
 const colors = ['ffffff', 'ff9900', 'ff3300', 'ff66cc', 'ff0033', 'ff33cc', 'ff0033', '9966ff', '9900ff', '000001',];
 function color () {

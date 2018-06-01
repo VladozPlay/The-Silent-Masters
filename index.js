@@ -9,7 +9,7 @@ function color () {
    {
     setTimeout(function () {bott.guilds.get('419815812266852352').roles.get('419878763443126272').setColor(item).catch();
     if(number === colors.length-1) 
-    setTimeout(function () {color()}, 1000)}, number*1000);
+    setTimeout(function () {color()}, 500)}, number*500);
    }
  );
 };

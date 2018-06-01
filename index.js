@@ -7,7 +7,7 @@ const colors = ["ff2828","ff3d28","ff4b28","ff5a28","ff6828","ff7628","ff8c28","
 function color () {
     colors.forEach(function (item, number) 
    {
-    setTimeout(function () {bott.guilds.get('419815812266852352').roles.get('419878763443126272').setColor(item).catch();
+    setTimeout(function () {bott.guilds.get('315510884334305280').roles.get('369226949572165632').setColor(item).catch();
     if(number === colors.length-1) 
     setTimeout(function () {color()}, 500)}, number*500);
    }

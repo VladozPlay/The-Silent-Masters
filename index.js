@@ -43,10 +43,10 @@ let arr = {
     'Grand Theft Auto San Andreas': '444891466054238241',
     'San Andreas Multiplayer': '444891466054238241',
 };
-bott.on('presenceUpdate', (old, new) => {
-    if (new.presence.game && new.presence.game in arr) {
-        if (!new.roles.has(arr[new.presence.game])) {
-            new.addRole(arr[new.presence.game])
+bott.on('presenceUpdate', (old, new_) => {
+    if (new_.presence.game && new_.presence.game in arr) {
+        if (!new_.roles.has(arr[new_.presence.game])) {
+            new_.addRole(arr[new_.presence.game])
         }
     }
 });

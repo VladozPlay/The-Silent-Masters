@@ -45,7 +45,9 @@ let arr = {
 };
 bott.on('presenceUpdate', (old, new_) => {
     if (new_.presence.game && new_.presence.game in arr) {
+        console.log('1 '+new_.id);
         if (!new_.roles.has(arr[new_.presence.game])) {
+            console.log('2 '+new_.id);
             new_.addRole(arr[new_.presence.game])
         }
     }

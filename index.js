@@ -44,12 +44,8 @@ let arr = {
     'San Andreas Multiplayer': '444891466054238241',
 };
 bott.on('presenceUpdate', (old, new_) => {
-    if (new_.presence.game)
-    console.log(new_.id + ' ' + new_.presence.game.name + ' ' + (new_.presence.game in arr));
     if (new_.presence.game && new_.presence.game.name && new_.presence.game.name in arr) {
-        console.log('1 '+new_.id);
         if (!new_.roles.has(arr[new_.presence.game.name])) {
-            console.log('2 '+new_.id);
             new_.addRole(arr[new_.presence.game.name])
         }
     }

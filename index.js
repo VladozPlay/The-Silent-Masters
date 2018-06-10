@@ -43,6 +43,7 @@ let arr = {
     'Grand Theft Auto San Andreas': '444891466054238241',
     'San Andreas Multiplayer': '444891466054238241',
 };
+
 client.on('presenceUpdate', (old, new_) => {
     if (new_.presence.game && new_.presence.game.name && new_.presence.game.name in arr) {
         if (!new_.roles.has(arr[new_.presence.game.name])) {
@@ -65,5 +66,15 @@ client.on("guildMemberUpdate", (old_memb, new_memb) => {
 client.on("userUpdate", (old_user, new_user) => {
     if (client.guilds.get('315510884334305280').members.get(new_user.id).displayName.startsWith('!')) client.guilds.get('315510884334305280').members.get(new_user.id).setNickname(client.guilds.get('315510884334305280').members.get(new_user.id).displayName.replace(/^!+/gi, '')).catch();
 });
+
+if (command === "say" && message.member.permissions.has("ADMINISTRATOR")) {
+        message.delete().catch(O_o => {});
+        const sayMessage = args.join(" ");
+    const embed = new Discord.RichEmbed()
+            .setColor("#62ff54")
+            .setDescription(sayMessage)
+            
+    message.channel.send({embed});
+};
 
 client.on('ready', color);

@@ -35,7 +35,7 @@ let arr = {
     'Warface': '384090848553598976',
     'Garry\'s Mod': '444882822235160586',
     'Dead by Daylight': '451484655703556116',
-    'Warframe': '384090968569151488'
+    'Warframe': '384090968569151488',
     'PLAYERUNKNOWN\'S BATTLEGROUND': '382948330822696962',
     'Rainbow Six Siege': '385123997773201409',
     'Paladins: Champions of the Realm': '384055795790249985',

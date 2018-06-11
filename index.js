@@ -14,6 +14,8 @@ function color () {
  );
 };
 
+client.on('ready', color);
+
 let arr = {
     'Counter-Strike Global Offensive': '382541656685150208',
     'Minecraft': '384091323071987712',
@@ -67,6 +69,20 @@ client.on("userUpdate", (old_user, new_user) => {
     if (client.guilds.get('315510884334305280').members.get(new_user.id).displayName.startsWith('!')) client.guilds.get('315510884334305280').members.get(new_user.id).setNickname(client.guilds.get('315510884334305280').members.get(new_user.id).displayName.replace(/^!+/gi, '')).catch();
 });
 
-
-
-client.on('ready', color);
+client.on("message", async message => {
+const prefix = "d!";
+    let messageArray = message.content.split(" ");
+    let cmd = messageArray[0];
+    let args = messageArray.slice(1);
+    
+if (command === `${prefix}say` && message.member.permissions.has("ADMINISTRATOR")) {
+        message.delete().catch(O_o => {});
+        const sayMessage = args.join(" ");
+    const embed = new Discord.RichEmbed()
+            .setColor("#62ff54")
+            .setDescription(sayMessage)
+            
+    message.channel.send({embed});
+}
+   
+});

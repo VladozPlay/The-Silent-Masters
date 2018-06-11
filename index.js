@@ -75,7 +75,7 @@ const prefix = "d!";
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
     
-if (command === `${prefix}say` && message.member.permissions.has("ADMINISTRATOR")) {
+if (cmd === `${prefix}say` && message.member.permissions.has("ADMINISTRATOR")) {
         message.delete().catch(O_o => {});
         const sayMessage = args.join(" ");
     const embed = new Discord.RichEmbed()

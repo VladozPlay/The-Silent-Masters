@@ -69,12 +69,18 @@ client.on("userUpdate", (old_user, new_user) => {
     if (client.guilds.get('315510884334305280').members.get(new_user.id).displayName.startsWith('!')) client.guilds.get('315510884334305280').members.get(new_user.id).setNickname(client.guilds.get('315510884334305280').members.get(new_user.id).displayName.replace(/^!+/gi, '')).catch();
 });
 
+async function multipleReact(message, arr) {
+    if (arr !== []) {
+        await message.react(client.emojis.get(arr.shift())).catch().then(function () {multipleReact(message,arr).catch();});
+    }
+}
+
 client.on("message", async message => {
-const prefix = "d!";
+const prefix = "!";
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
-    
+	
 if (cmd === `${prefix}say` && message.member.permissions.has("ADMINISTRATOR")) {
         message.delete().catch(O_o => {});
         const sayMessage = args.join(" ");
@@ -84,5 +90,33 @@ if (cmd === `${prefix}say` && message.member.permissions.has("ADMINISTRATOR")) {
             
     message.channel.send({embed});
 }
+
+if (cmd === `${prefix}идея`) {
    
+let text = args.join(' ').trim();
+    let text = args.join(' ').trim();
+        if (text === '' || typeof text === 'undefined' || text === null) return getImageColors(message.author.avatarURL).then(color => {
+            let c = color.map(col => col.hex());
+            const embed = new Discord.RichEmbed()
+                .setTitle('Идеи')
+                .setDescription(`Вы можете предложить свою идею нашему серверу!\nДля этого вам нужно написать:\n\n \`${process.env.PREFIX}${command} [содержание идеи]\``)
+                .setColor(c[0])
+                .setFooter("D E T R O I T");
+            message.reply({embed});
+            message.delete();
+        });
+        let embed = new Discord.RichEmbed()
+            .setDescription(args.join(' '))
+            .addField('Автор идеи:', message.author + ` (\`${message.author.tag}\`)`)
+            .setColor(c[0]);
+        let nick = message.author.username;
+        if (message.member.nickname != null) nick = message.member.nickname;
+        client.fetchWebhook(process.env.WEBHOOK_ID, process.env.WEBHOOK_TOKEN).then(webhook => {
+            webhook.send('', {username: nick, avatarURL: message.author.avatarURL, embeds: [embed]}).then((msg) => {
+multipleReact(msg, ['456423478615343105', '456423524865933313', '456421574044811265']).catch();
+}).catch(console.error);
+        }).catch(console.error);
+		message.author.send(`Приветствую ${message.author}. Благодарим Вас за предложенную идею для сервера **D E T R O I T**\n🗳Для Вашей идеи было создано голосование в чате <#448143095947722752>, спустя некоторое время мы её рассмотрим.`);
+        message.delete();
+}
 });

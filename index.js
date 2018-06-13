@@ -30,7 +30,7 @@ let arr = {
     'Rocket League': '382217725226909696',
     'World of Tanks': '444882288388603905',
     'The Elder Scrolls Online': '385124246432514059',
-    'Grand Theft AutoV ': '381779905895202827',
+    'Grand Theft Auto V': '381779905895202827',
     'Arma 3': '381780183826300940',
     'Heroes of the Storm': '384113810618843137',
     'Rust': '379583387477737482',

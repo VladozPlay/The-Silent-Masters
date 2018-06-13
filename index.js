@@ -93,8 +93,7 @@ if (cmd === `${prefix}say` && message.member.permissions.has("ADMINISTRATOR")) {
 
 if (cmd === `${prefix}идея`) {
    
-let text = args.join(' ').trim();
-    let text = args.join(' ').trim();
+	let text = args.join(' ').trim();
         if (text === '' || typeof text === 'undefined' || text === null) return getImageColors(message.author.avatarURL).then(color => {
             let c = color.map(col => col.hex());
             const embed = new Discord.RichEmbed()

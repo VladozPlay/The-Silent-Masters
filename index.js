@@ -97,10 +97,10 @@ if (cmd === `${prefix}идея`) {
         if (text === '' || typeof text === 'undefined' || text === null) return getImageColors(message.author.avatarURL).then(color => {
             let c = color.map(col => col.hex());
             const embed = new Discord.RichEmbed()
-                .setTitle('Идеи')
-                .setDescription(`Вы можете предложить свою идею нашему серверу!\nДля этого вам нужно написать:\n\n \`${process.env.PREFIX}${command} [содержание идеи]\``)
+                .setTitle('')
+                .setDescription(``)
                 .setColor(c[0])
-                .setFooter("D E T R O I T");
+                .setFooter("");
             message.reply({embed});
             message.delete();
         });

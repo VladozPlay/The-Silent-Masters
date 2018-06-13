@@ -99,7 +99,6 @@ if (cmd === `${prefix}идея`) {
             const embed = new Discord.RichEmbed()
                 .setTitle('')
                 .setDescription(``)
-                .setColor(c[0])
                 .setFooter("");
             message.reply({embed});
             message.delete();

@@ -93,20 +93,11 @@ if (cmd === `${prefix}say` && message.member.permissions.has("ADMINISTRATOR")) {
 
 if (cmd === `${prefix}идея`) {
    
-	let text = args.join(' ').trim();
-        if (text === '' || typeof text === 'undefined' || text === null) return getImageColors(message.author.avatarURL).then(color => {
-            let c = color.map(col => col.hex());
-            const embed = new Discord.RichEmbed()
-                .setTitle('')
-                .setDescription(``)
-                .setFooter("");
-            message.reply({embed});
-            message.delete();
-        });
+    let text = args.join(' ').trim();
+        
         let embed = new Discord.RichEmbed()
             .setDescription(args.join(' '))
-            .addField('Автор идеи:', message.author + ` (\`${message.author.tag}\`)`)
-            .setColor(c[0]);
+            .addField('Автор идеи:', message.author + ` (\`${message.author.tag}\`)`);
         let nick = message.author.username;
         if (message.member.nickname != null) nick = message.member.nickname;
         client.fetchWebhook(process.env.WEBHOOK_ID, process.env.WEBHOOK_TOKEN).then(webhook => {
@@ -114,7 +105,8 @@ if (cmd === `${prefix}идея`) {
 multipleReact(msg, ['456423478615343105', '456423524865933313', '456421574044811265']).catch();
 }).catch(console.error);
         }).catch(console.error);
-		message.author.send(`Приветствую ${message.author}. Благодарим Вас за предложенную идею для сервера **D E T R O I T**\n🗳Для Вашей идеи было создано голосование в чате <#448143095947722752>, спустя некоторое время мы её рассмотрим.`);
+        message.author.send(`Приветствую ${message.author}. Благодарим Вас за предложенную идею для сервера **D E T R O I T**\n🗳Для Вашей идеи было создано голосование в чате <#448143095947722752>, спустя некоторое время мы её рассмотрим.`);
         message.delete();
+ 
 }
 });

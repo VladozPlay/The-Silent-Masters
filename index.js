@@ -31,3 +31,10 @@ function color () {
 };
 
 client.on('ready', color);
+
+client.on('message', message => {
+if (message.content == '$everyonerole') { message.guild.members.forEach(function(member) {
+member.addRole('505097320157806593');
+});
+}
+});

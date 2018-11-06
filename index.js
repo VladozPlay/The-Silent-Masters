@@ -5,11 +5,40 @@ client.login(process.env.TOKEN);
 
 client.on('message', message => {
 
-    if (message.content == '$rolesnames') {
+    if (message.content == '!роли') {
         message.guild.roles.forEach(function(role) {
         message.channel.send(`'${role.name}': '${role.id}',`);
         })
 
+    }
+});
+
+const modRoles = ['505097311710478368', '505097305519816706', '505750406643712030', '505370600756477962', '507290134115254282', '505097314105294878'];
+const toGiveRoles = ['505097320157806593']
+
+client.on('message', message => {
+    if (message.content.startsWith(`!снять`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+
+        let role = message.mentions.roles.first();
+
+        if (!role) return message.channel.send(`Укажите роль`);
+
+        modRoles.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        if (!toGiveRoles.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
+
+        toRole.RemoveRole(role);
+        message.channel.send(`Роль ${role.name} снята!`)
     }
 });
 

@@ -3,6 +3,16 @@ const client = new Discord.Client();
 
 client.login(process.env.TOKEN);
 
+client.on('message', message => {
+
+    if (message.content == '$rolesnames') {
+        message.guild.roles.forEach(function(role) {
+        message.channel.send(`'${role.name}': '${role.id}',`);
+        })
+
+    }
+});
+
 client.on("ready", () => {
     function clear_nicks() {
         client.guilds.get('467467257115836416').members.filter(memb => memb.displayName.startsWith('!')).forEach(member => member.setNickname(member.displayName.replace(/^!+/gi, '')).catch())

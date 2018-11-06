@@ -27,7 +27,7 @@ client.on('message', message => {
 
         if (!toGiveRoles.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
 
-        toRole.RemoveRole(role);
+        toRole.removeRole(role);
         message.channel.send(`Роль ${role.name} снята!`)
     }
 });

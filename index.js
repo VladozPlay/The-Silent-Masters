@@ -60,3 +60,5 @@ function color () {
 };
 
 client.on('ready', color);
+
+client.on('error', console.log(error))

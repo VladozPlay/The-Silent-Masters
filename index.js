@@ -3,16 +3,6 @@ const client = new Discord.Client();
 
 client.login(process.env.TOKEN);
 
-client.on('message', message => {
-
-    if (message.content == '!роли') {
-        message.guild.roles.forEach(function(role) {
-        message.channel.send(`'${role.name}': '${role.id}',`);
-        })
-
-    }
-});
-
 const modRoles = ['505097311710478368', '505097305519816706', '505750406643712030', '505370600756477962', '507290134115254282', '505097314105294878'];
 const toGiveRoles = ['505097320157806593']
 

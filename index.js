@@ -4,10 +4,11 @@ const client = new Discord.Client();
 client.login(process.env.TOKEN);
 
 const modRoles = ['505097311710478368', '505097305519816706', '505750406643712030', '505370600756477962', '507290134115254282', '505097314105294878'];
-const toGiveRoles = ['505097320157806593']
+const clanRoles = ['505097320157806593']
+const guestRole = '505097320157806593'
 
 client.on('message', message => {
-    if (message.content.startsWith(`!снять`)) {
+    if (message.content.startsWith(`!выдать`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);
@@ -25,10 +26,11 @@ client.on('message', message => {
 
         if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
 
-        if (!toGiveRoles.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
+        if (!clanRoles.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
 
-        toRole.removeRole(role);
-        message.channel.send(`Роль ${role.name} снята!`)
+        toRole.addRole(role);
+    toRole.removeRole(guestRole);
+        message.channel.send(`Роль ${role.name} выдана!`)
     }
 });
 

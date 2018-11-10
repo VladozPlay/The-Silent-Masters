@@ -13,8 +13,163 @@ client.on('message', message => {
     }
 });
 
-const modRoles = ['505097311710478368', '505097305519816706', '505750406643712030', '505370600756477962', '507290134115254282', '505097314105294878'];
-const clanRoles = ['505097320157806593']
+const modRoles = ['505097311710478368'];
+const clanRoles = ['505097312821968896']
+const guestRole = '505097320157806593'
+
+client.on('message', message => {
+    if (message.content.startsWith(`!выдать`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+
+        let role = message.mentions.roles.first();
+
+        if (!role) return message.channel.send(`Укажите роль`);
+
+        modRoles.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        if (!clanRoles.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
+
+        toRole.addRole(role);
+    toRole.removeRole(guestRole);
+        message.channel.send(`Роль ${role.name} выдана!`)
+    }
+});
+
+const modRoles = ['505097305519816706'];
+const clanRoles = ['505097311408619560']
+const guestRole = '505097320157806593'
+
+client.on('message', message => {
+    if (message.content.startsWith(`!выдать`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+
+        let role = message.mentions.roles.first();
+
+        if (!role) return message.channel.send(`Укажите роль`);
+
+        modRoles.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        if (!clanRoles.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
+
+        toRole.addRole(role);
+    toRole.removeRole(guestRole);
+        message.channel.send(`Роль ${role.name} выдана!`)
+    }
+});
+
+const modRoles = ['505750406643712030'];
+const clanRoles = ['505750403950837771']
+const guestRole = '505097320157806593'
+
+client.on('message', message => {
+    if (message.content.startsWith(`!выдать`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+
+        let role = message.mentions.roles.first();
+
+        if (!role) return message.channel.send(`Укажите роль`);
+
+        modRoles.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        if (!clanRoles.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
+
+        toRole.addRole(role);
+    toRole.removeRole(guestRole);
+        message.channel.send(`Роль ${role.name} выдана!`)
+    }
+});
+
+const modRoles = ['505370600756477962'];
+const clanRoles = ['505097313652310026']
+const guestRole = '505097320157806593'
+
+client.on('message', message => {
+    if (message.content.startsWith(`!выдать`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+
+        let role = message.mentions.roles.first();
+
+        if (!role) return message.channel.send(`Укажите роль`);
+
+        modRoles.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        if (!clanRoles.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
+
+        toRole.addRole(role);
+    toRole.removeRole(guestRole);
+        message.channel.send(`Роль ${role.name} выдана!`)
+    }
+});
+
+const modRoles = ['507290134115254282'];
+const clanRoles = ['507290137265176588']
+const guestRole = '505097320157806593'
+
+client.on('message', message => {
+    if (message.content.startsWith(`!выдать`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+
+        let role = message.mentions.roles.first();
+
+        if (!role) return message.channel.send(`Укажите роль`);
+
+        modRoles.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        if (!clanRoles.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
+
+        toRole.addRole(role);
+    toRole.removeRole(guestRole);
+        message.channel.send(`Роль ${role.name} выдана!`)
+    }
+});
+
+const modRoles = ['505097314105294878'];
+const clanRoles = ['505097318387810314']
 const guestRole = '505097320157806593'
 
 client.on('message', message => {

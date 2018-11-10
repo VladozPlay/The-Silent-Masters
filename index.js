@@ -13,9 +13,9 @@ client.on('message', message => {
     }
 });
 
-const modRoles = ['505097311710478368'];
-const clanRoles = ['505097312821968896']
-const guestRole = '505097320157806593'
+let modRoles = ['505097311710478368'];
+let clanRoles = ['505097312821968896']
+let guestRole = '505097320157806593'
 
 client.on('message', message => {
     if (message.content.startsWith(`!выдать`)) {
@@ -44,9 +44,9 @@ client.on('message', message => {
     }
 });
 
-const modRoles = ['505097305519816706'];
-const clanRoles = ['505097311408619560']
-const guestRole = '505097320157806593'
+let modRoles = ['505097305519816706'];
+let clanRoles = ['505097311408619560']
+let guestRole = '505097320157806593'
 
 client.on('message', message => {
     if (message.content.startsWith(`!выдать`)) {
@@ -75,9 +75,9 @@ client.on('message', message => {
     }
 });
 
-const modRoles = ['505750406643712030'];
-const clanRoles = ['505750403950837771']
-const guestRole = '505097320157806593'
+let modRoles = ['505750406643712030'];
+let clanRoles = ['505750403950837771']
+let guestRole = '505097320157806593'
 
 client.on('message', message => {
     if (message.content.startsWith(`!выдать`)) {
@@ -106,9 +106,9 @@ client.on('message', message => {
     }
 });
 
-const modRoles = ['505370600756477962'];
-const clanRoles = ['505097313652310026']
-const guestRole = '505097320157806593'
+let modRoles = ['505370600756477962'];
+let clanRoles = ['505097313652310026']
+let guestRole = '505097320157806593'
 
 client.on('message', message => {
     if (message.content.startsWith(`!выдать`)) {
@@ -137,9 +137,9 @@ client.on('message', message => {
     }
 });
 
-const modRoles = ['507290134115254282'];
-const clanRoles = ['507290137265176588']
-const guestRole = '505097320157806593'
+let modRoles = ['507290134115254282'];
+let clanRoles = ['507290137265176588']
+let guestRole = '505097320157806593'
 
 client.on('message', message => {
     if (message.content.startsWith(`!выдать`)) {
@@ -168,9 +168,9 @@ client.on('message', message => {
     }
 });
 
-const modRoles = ['505097314105294878'];
-const clanRoles = ['505097318387810314']
-const guestRole = '505097320157806593'
+let modRoles = ['505097314105294878'];
+let clanRoles = ['505097318387810314']
+let guestRole = '505097320157806593'
 
 client.on('message', message => {
     if (message.content.startsWith(`!выдать`)) {

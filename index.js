@@ -169,7 +169,7 @@ client.on('message', message => {
 });
 
 const modRoles5 = ['505097314105294878'];
-const clanRoles = ['505097318387810314']
+const clanRoles5 = ['505097318387810314']
 const guestRole5 = '505097320157806593'
 
 client.on('message', message => {

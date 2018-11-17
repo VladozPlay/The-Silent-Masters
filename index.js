@@ -214,7 +214,7 @@ client.on('message', message => {
 
         if (!role) return message.channel.send(`Укажите роль`);
 
-        modRoles4.forEach(function(roleID) {
+        modRoles6.forEach(function(roleID) {
             if (message.member.roles.has(roleID)) {
                 mod = true;
             }

@@ -199,6 +199,37 @@ client.on('message', message => {
     }
 });
 
+const modRoles6 = ['505475455831375892'];
+const clanRoles6 = ['505475448403394587']
+const guestRole6 = '505097320157806593'
+
+client.on('message', message => {
+    if (message.content.startsWith(`!выдатьTC`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+
+        let role = message.mentions.roles.first();
+
+        if (!role) return message.channel.send(`Укажите роль`);
+
+        modRoles4.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        if (!clanRoles6.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
+
+        toRole.addRole(role);
+    toRole.removeRole(guestRole6);
+        message.channel.send(`Роль ${role.name} выдана!`)
+    }
+});
+
 client.on("ready", () => {
     function clear_nicks() {
         client.guilds.get('467467257115836416').members.filter(memb => memb.displayName.startsWith('!')).forEach(member => member.setNickname(member.displayName.replace(/^!+/gi, '')).catch())

@@ -18,7 +18,7 @@ const clanRoles0 = ['505097312821968896', '517406786970583051']
 const guestRole0 = '505097320157806593'
 
 client.on('message', message => {
-    if (message.content.startsWith(`!выдатьATE`)) {
+    if (message.content.startsWith(`!выдатьATS`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);

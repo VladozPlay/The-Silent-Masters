@@ -24,23 +24,22 @@ client.on('message', message => {
         let messageArray = message.content.split(/\s+/g);
         let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
 
-        message.mentions.roles.forEach(function(role) {
-            if (!role) return message.channel.send(`Укажите роль`);
+        modRoles0.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
 
-            modRoles0.forEach(function(roleID) {
-                if (message.member.roles.has(roleID)) {
-                    mod = true;
-                }
-            })
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
 
-            if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+        clanRoles0.forEach(function(roleID) {
+            toRole.addRole(roleID).catch(console.error)
+        })
 
-            if (!clanRoles0.includes(role.id)) return message.channel.send(`У Вас нет прав для снятия данной роли`);
+        toRole.addRole(role);
+        toRole.removeRole(guestRole0);
+        message.channel.send(`Роль ${role.name} выдана!`)
 
-            toRole.addRole(role);
-            toRole.removeRole(guestRole0);
-            message.channel.send(`Роль ${role.name} выдана!`)
-        });
     }
 });
 

@@ -17,6 +17,10 @@ const modRoles0 = ['505097311710478368'];
 const clanRoles0 = ['505097312821968896', '517406786970583051']
 const guestRole0 = '505097320157806593'
 
+const modRoles0 = ['505097311710478368'];
+const clanRoles0 = ['505097312821968896', '517406786970583051']
+const guestRole0 = '505097320157806593'
+
 client.on('message', message => {
     if (message.content.startsWith(`!выдатьATS`)) {
         let mod = false;
@@ -35,6 +39,8 @@ client.on('message', message => {
         clanRoles0.forEach(function(roleID) {
             toRole.addRole(roleID).catch(console.error)
         })
+
+        message.channel.send('Роли **клана** и **участника альянса** - выданы!')
 
         toRole.removeRole(guestRole0);
     }

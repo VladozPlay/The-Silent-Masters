@@ -17,10 +17,6 @@ const modRoles0 = ['505097311710478368'];
 const clanRoles0 = ['505097312821968896', '517406786970583051']
 const guestRole0 = '505097320157806593'
 
-const modRoles0 = ['505097311710478368'];
-const clanRoles0 = ['505097312821968896', '517406786970583051']
-const guestRole0 = '505097320157806593'
-
 client.on('message', message => {
     if (message.content.startsWith(`!выдатьATS`)) {
         let mod = false;

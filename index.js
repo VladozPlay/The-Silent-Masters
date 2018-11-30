@@ -9,13 +9,12 @@ client.on('message', message => {
         message.guild.roles.forEach(function(role) {
         message.channel.send(`'${role.name}': '${role.id}',`);
         })
-
     }
 });
 
 client.on('guildMemberAdd', member => {
     member.user.send(`
-Добро пожаловать в Альянс :star: **The Silent Masters** :star:
+Добро пожаловать на сервер Альянса: :star: **The Silent Masters** :star:
 
 :dvd: Наше сообщество **Гиперсоциальное** - в наших кланах имеет приемущество: общение и игра в команде.
 :cd: Все действия связанное с игрой, у нас происходят в Discrord'e!

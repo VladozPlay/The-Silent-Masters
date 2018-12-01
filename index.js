@@ -265,5 +265,4 @@ client.on("userUpdate", (old_user, new_user) => {
 });
 
 client.on('error', function(error) {
-console.log(error)
 });

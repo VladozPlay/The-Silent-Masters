@@ -47,7 +47,8 @@ client.on('message', message => {
 
         let messageArray = message.content.split(/\s+/g);
         let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
-
+        if (!toRole) return message.channel.send('Укажите новобранца!')
+        
         modRoles0.forEach(function(roleID) {
             if (message.member.roles.has(roleID)) {
                 mod = true;
@@ -76,6 +77,7 @@ client.on('message', message => {
 
         let messageArray = message.content.split(/\s+/g);
         let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
 
         modRoles1.forEach(function(roleID) {
             if (message.member.roles.has(roleID)) {
@@ -105,6 +107,7 @@ client.on('message', message => {
 
         let messageArray = message.content.split(/\s+/g);
         let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
 
         modRoles2.forEach(function(roleID) {
             if (message.member.roles.has(roleID)) {
@@ -134,6 +137,7 @@ client.on('message', message => {
 
         let messageArray = message.content.split(/\s+/g);
         let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
 
         modRoles3.forEach(function(roleID) {
             if (message.member.roles.has(roleID)) {
@@ -163,6 +167,7 @@ client.on('message', message => {
 
         let messageArray = message.content.split(/\s+/g);
         let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
 
         modRoles4.forEach(function(roleID) {
             if (message.member.roles.has(roleID)) {
@@ -192,6 +197,7 @@ client.on('message', message => {
 
         let messageArray = message.content.split(/\s+/g);
         let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
 
         modRoles5.forEach(function(roleID) {
             if (message.member.roles.has(roleID)) {
@@ -221,6 +227,7 @@ client.on('message', message => {
 
         let messageArray = message.content.split(/\s+/g);
         let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
 
         modRoles6.forEach(function(roleID) {
             if (message.member.roles.has(roleID)) {
@@ -258,4 +265,5 @@ client.on("userUpdate", (old_user, new_user) => {
 });
 
 client.on('error', function(error) {
+console.log(error)
 });

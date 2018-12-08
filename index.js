@@ -162,7 +162,7 @@ const clanRoles4 = ['507290137265176588', '517406786970583051']
 const guestRole4 = '505097320157806593'
 
 client.on('message', message => {
-    if (message.content.startsWith(`!выдатьPP`)) {
+    if (message.content.startsWith(`!выдатьSS`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);

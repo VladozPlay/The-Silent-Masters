@@ -192,7 +192,7 @@ const clanRoles5 = ['505097318387810314', '517406786970583051']
 const guestRole5 = '505097320157806593'
 
 client.on('message', message => {
-    if (message.content.startsWith(`!выдатьID`)) {
+    if (message.content.startsWith(`!выдатьGBR`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);

@@ -132,7 +132,7 @@ const clanRoles3 = ['505097313652310026', '517406786970583051']
 const guestRole3 = '505097320157806593'
 
 client.on('message', message => {
-    if (message.content.startsWith(`!выдатьJH`)) {
+    if (message.content.startsWith(`!выдатьTKO`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);
@@ -192,7 +192,7 @@ const clanRoles5 = ['505097318387810314', '517406786970583051']
 const guestRole5 = '505097320157806593'
 
 client.on('message', message => {
-    if (message.content.startsWith(`!выдатьGBR`)) {
+    if (message.content.startsWith(`!выдатьID`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);

@@ -67,42 +67,12 @@ client.on('message', message => {
     }
 });
 
-const modRoles1 = ['505097305519816706'];
-const clanRoles1 = ['505097311408619560', '517406786970583051']
-const guestRole1 = '505097320157806593'
-
-client.on('message', message => {
-    if (message.content.startsWith(`!выдатьTOS`)) {
-        let mod = false;
-
-        let messageArray = message.content.split(/\s+/g);
-        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
-        if (!toRole) return message.channel.send('Укажите новобранца!')
-
-        modRoles1.forEach(function(roleID) {
-            if (message.member.roles.has(roleID)) {
-                mod = true;
-            }
-        })
-
-        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
-
-        clanRoles1.forEach(function(roleID) {
-            toRole.addRole(roleID).catch(console.error)
-        })
-
-        message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
-
-        toRole.removeRole(guestRole1);
-    }
-});
-
-const modRoles2 = ['505750406643712030'];
-const clanRoles2 = ['505750403950837771', '517406786970583051']
+const modRoles2 = ['505097305519816706'];
+const clanRoles2 = ['505097311408619560', '517406786970583051']
 const guestRole2 = '505097320157806593'
 
 client.on('message', message => {
-    if (message.content.startsWith(`!выдатьTDR`)) {
+    if (message.content.startsWith(`!выдатьG21`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);
@@ -154,66 +124,6 @@ client.on('message', message => {
         message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
 
         toRole.removeRole(guestRole3);
-    }
-});
-
-const modRoles4 = ['507290134115254282'];
-const clanRoles4 = ['507290137265176588', '517406786970583051']
-const guestRole4 = '505097320157806593'
-
-client.on('message', message => {
-    if (message.content.startsWith(`!выдатьSS`)) {
-        let mod = false;
-
-        let messageArray = message.content.split(/\s+/g);
-        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
-        if (!toRole) return message.channel.send('Укажите новобранца!')
-
-        modRoles4.forEach(function(roleID) {
-            if (message.member.roles.has(roleID)) {
-                mod = true;
-            }
-        })
-
-        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
-
-        clanRoles4.forEach(function(roleID) {
-            toRole.addRole(roleID).catch(console.error)
-        })
-
-        message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
-
-        toRole.removeRole(guestRole4);
-    }
-});
-
-const modRoles5 = ['505097314105294878'];
-const clanRoles5 = ['505097318387810314', '517406786970583051']
-const guestRole5 = '505097320157806593'
-
-client.on('message', message => {
-    if (message.content.startsWith(`!выдатьID`)) {
-        let mod = false;
-
-        let messageArray = message.content.split(/\s+/g);
-        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
-        if (!toRole) return message.channel.send('Укажите новобранца!')
-
-        modRoles5.forEach(function(roleID) {
-            if (message.member.roles.has(roleID)) {
-                mod = true;
-            }
-        })
-
-        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
-
-        clanRoles5.forEach(function(roleID) {
-            toRole.addRole(roleID).catch(console.error)
-        })
-
-        message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
-
-        toRole.removeRole(guestRole5);
     }
 });
 

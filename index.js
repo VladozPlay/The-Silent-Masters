@@ -54,7 +54,168 @@ client.on('message', message => {
 	}
 });
 
+const modRoles0 = ['521322959277916170'];
+const clanRoles0 = ['561644392436334593']
 
+client.on('message', message => {
+    if (message.content.startsWith(`!mute`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите нарушителя!')
+        
+        modRoles0.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды.`);
+
+        clanRoles0.forEach(function(roleID) {
+            toRole.addRole(roleID).catch(console.error)
+        })
+
+        message.channel.send('Роль: **мута** - выдана!')
+    }
+});
+
+const modRoles4 = ['521322959277916170'];
+const clanRoles4 = ['561644392171962384']
+
+client.on('message', message => {
+    if (message.content.startsWith(`!ban`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите нарушителя!')
+        
+        modRoles4.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды.`);
+
+        clanRoles4.forEach(function(roleID) {
+            toRole.addRole(roleID).catch(console.error)
+        })
+
+        message.channel.send('Роль: **бана** - выдана!')
+    }
+});
+
+const modRoles1 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457'];
+const clanRoles1 = ['561644399264661554']
+const guestRole1 = '561648376563892224'
+
+client.on('message', message => {
+    if (message.content.startsWith(`!выдатьATS`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
+        
+        modRoles1.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        clanRoles1.forEach(function(roleID) {
+            toRole.addRole(roleID).catch(console.error)
+        })
+
+        message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
+
+        toRole.removeRole(guestRole1);
+    }
+});
+
+const modRoles2 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457'];
+const clanRoles2 = ['561644401672192000']
+const guestRole2 = '561648376563892224'
+
+client.on('message', message => {
+    if (message.content.startsWith(`!выдатьBA`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
+
+        modRoles2.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        clanRoles2.forEach(function(roleID) {
+            toRole.addRole(roleID).catch(console.error)
+        })
+
+        message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
+
+        toRole.removeRole(guestRole2);
+    }
+});
+
+const modRoles3 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457'];
+const clanRoles3 = ['561648374781181983']
+const guestRole3 = '561648376563892224'
+
+client.on('message', message => {
+    if (message.content.startsWith(`!выдатьCS`)) {
+        let mod = false;
+
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
+
+        modRoles3.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        clanRoles3.forEach(function(roleID) {
+            toRole.addRole(roleID).catch(console.error)
+        })
+
+        message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
+
+        toRole.removeRole(guestRole3);
+    }
+});
+
+const joinedRecently = {};
+client.on("voiceStateUpdate", (old_, new_) => {
+    if (
+        old_.voiceChannelID !== "561700743279673375"
+        && new_.voiceChannelID === "561700743279673375"
+        && new_.roles.has("493444430661943314")		// Собеседование
+        && !new_.roles.has("529719426824798208")	// Основатель Клана - [ATS]
+        && !new_.roles.has("535936925622730773")	// Основатель Клана - [BA]
+        && !new_.roles.has("554359251951157250")    // Основатель Клана - [CS]
+        && !new_.roles.has("554368513695940628")    // Участник Клана - [ATS]
+        && !new_.roles.has("560521415246217234")    // Участник Клана - [BA]
+        && !new_.roles.has("560521415527366657")    // Участник Клана - [CS]
+        && (!(new_.id in joinedRecently) || Date.now() >= joinedRecently[new_.id])
+    ) {
+        new_.guild.channels.get("561735603797098518").send(`\`\`\`fix\nУважаемые Лидеры и Рекрутеры:\`\`\`\nВ канале **собеседование** - Вас ожидает новобранец: ${new_}, который желает вступить в наши ряды.\nПожалуйста, уделите ему несколько минут. Это не трудно. Это быстро. Это увеличит наш онлайн.\nПостоянная ссылка на канал: **собеседование** - https://discord.gg/pA9VUBe | @everyone`);
+        joinedRecently[new_.id] = Date.now() + 6e4;
+    }
+});
 
 client.on(
 	"guildMemberAdd",

@@ -110,7 +110,7 @@ client.on('message', message => {
 
 const modRoles1 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457'];
 const clanRoles1 = ['561644399264661554']
-const guestRole1 = '561648376563892224'
+const guestRole1 = '561644397893124096'
 
 client.on('message', message => {
     if (message.content.startsWith(`!выдатьATS`)) {
@@ -140,7 +140,7 @@ client.on('message', message => {
 
 const modRoles2 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457'];
 const clanRoles2 = ['561644401672192000']
-const guestRole2 = '561648376563892224'
+const guestRole2 = '561644397893124096'
 
 client.on('message', message => {
     if (message.content.startsWith(`!выдатьBA`)) {
@@ -170,7 +170,7 @@ client.on('message', message => {
 
 const modRoles3 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457'];
 const clanRoles3 = ['561648374781181983']
-const guestRole3 = '561648376563892224'
+const guestRole3 = '561644397893124096'
 
 client.on('message', message => {
     if (message.content.startsWith(`!выдатьCS`)) {

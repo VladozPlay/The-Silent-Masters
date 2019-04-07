@@ -54,7 +54,7 @@ client.on('message', message => {
 	}
 });
 
-const modRoles0 = ['521322959277916170'];
+const modRoles0 = ['561644395691245606'];
 const clanRoles0 = ['561644392436334593']
 
 client.on('message', message => {
@@ -81,7 +81,7 @@ client.on('message', message => {
     }
 });
 
-const modRoles4 = ['521322959277916170'];
+const modRoles4 = ['561644395691245606'];
 const clanRoles4 = ['561644392171962384']
 
 client.on('message', message => {

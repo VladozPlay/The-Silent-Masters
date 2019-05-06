@@ -173,7 +173,7 @@ const clanRoles4 = ['561648374781181983']
 const guestRole4 = '561644397893124096'
 
 client.on('message', message => {
-    if (message.content.startsWith(`!выдатьCS`)) {
+    if (message.content.startsWith(`!выдатьOS`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);

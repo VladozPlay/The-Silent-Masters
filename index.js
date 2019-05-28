@@ -278,12 +278,23 @@ client.on("message", async (message) => {
 });
 
 client.on("message", (message) => {
-	if (!message.channel || message.channel.type !== "text" ||  !message.member.hasPermission("ADMINISTRATOR")) return;
-	const command = "!текст ";
-	if (message.content.startsWith(command)) {
-		message.channel.send(message.content.substring(command.length))
-		message.delete();
-    }
+if (message.content.startsWith('!текст') && message.guild && message.member.hasPermission('ADMINISTRATOR')) {
+        var request = require('request').defaults({ encoding: null });
+        let buffer;
+        if (message.attachments.size > 0) {
+            request.get(message.attachments.first().url, function (err, res, buff) {
+                if (err) return console.log(err);
+                message.channel.send(message.content.slice(5), {
+                    file: buff
+                }).then(_ => {
+                    message.delete().catch(console.error);
+                });
+            });
+        } else {
+            message.channel.send(message.content.slice(5));
+            message.delete().catch(console.error);
+        }
+}
 });
 
 client.on('error', function(error) {

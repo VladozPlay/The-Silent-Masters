@@ -291,7 +291,7 @@ if (message.content.startsWith('!текст') && message.guild && message.member
                 });
             });
         } else {
-            message.channel.send(message.content.slice(5));
+            message.channel.send(message.content.slice(7));
             message.delete().catch(console.error);
         }
 }

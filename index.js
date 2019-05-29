@@ -299,3 +299,7 @@ if (message.content.startsWith('!текст') && message.guild && message.member
 
 client.on('error', function(error) {
 });
+
+client.on('ready', () => {
+    console.log('Ready');
+});

@@ -281,7 +281,7 @@ if (message.content.startsWith('!текст') && message.guild && message.member
         if (message.attachments.size > 0) {
             request.get(message.attachments.first().url, function (err, res, buff) {
                 if (err) return console.log(err);
-                message.channel.send(message.content.slice(5), {
+                message.channel.send(message.content.slice(7), {
                     file: buff
                 }).then(_ => {
                     message.delete().catch(console.error);

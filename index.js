@@ -44,21 +44,52 @@ client.on("userUpdate", (old_user, new_user) => {
     if (client.guilds.get('467467257115836416').members.get(old_user.id).displayName.startsWith('!')) client.guilds.get('467467257115836416').members.get(new_user.id).setNickname(client.guilds.get('467467257115836416').members.get(new_user.id).displayName.replace(/^!+/gi, '')).catch();
 });
 
-client.on('message', message => {
-	if (message.content == '!роли' && message.channel && message.channel.type == "text" && message.member.hasPermission('ADMINISTRATOR')) {
+const modRoles0 = ['561644395691245606'];
+const clanRoles0 = ['561644392436334593']
+
+const modRoles1 = ['561644395691245606'];
+const clanRoles1 = ['561644392171962384']
+
+const modRoles2 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457', '561648376567824386'];
+const clanRoles2 = ['561644399264661554']
+const guestRole2 = '561644397893124096'
+
+const modRoles3 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457', '561648376567824386'];
+const clanRoles3 = ['561644401672192000']
+const guestRole3 = '561644397893124096'
+
+const modRoles4 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457', '561648376567824386'];
+const clanRoles4 = ['561648374781181983']
+const guestRole4 = '561644397893124096'
+
+const modRoles5 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457', '561648376567824386'];
+const clanRoles5 = ['562042563083894800']
+const guestRole5 = '561644397893124096'
+
+client.on('message', async message => {
+	
+	if (message.content == '!команды') message.channel.send('\`\`\`fix\nСписок команд:\`\`\`\n**!команды** - \`список всех команд на сервере\`\n**!пещеры** - \`карты с пещерами\`\n**!отписка** - \`информация о написании отписки\`\n**!гонки** - \`карта с гонками\`\n**!баро** - \`время прихода баро китира\`');
+	if (message.content == '!гонки') message.channel.send('\`\`\`fix\nКарта гонок - Долина Сфер:\`\`\`\nhttps://i.imgur.com/AMHndnO.png');
+	if (message.content == '!баро') message.channel.send('В разработке');
+	if (message.content == '!отписка') {
+		await message.channel.send('\`\`\`fix\nИнформация о канале «🛵отписка»:\`\`\`\nЕсли вы по каким либо причинам не сможете играть более 15-ти дней, Вам нужно отписать об этом в чат <#561646718446206977>.\nЗапрещается не проявлять активность в игре в течении 15-ти дней без отписки. Карается - Изгнанием.\n\n\`\`\`fix\nПравила оформления отписки:\`\`\`');
+		await message.channel.send('1. Игровой никнейм:\n2. Причина отсутствия:\n3. Количество дней:\n\n`Причины и Количество дней - пишите, хотя бы, примерно. Причины типа: ХЗ - рассматриваться не будут.`\n\n\`\`\`fix\nОБЯЗАТЕЛЬНО К ПРОЧТЕНИЮ:\`\`\`');
+		await message.channel.send('Когда **вернетесь** в игру обратно - **удалите** свою отписку!\nЕсли вы **не написали** сюда отписку, то **не возмущайтесь**, если Вас **выгонят** из клана.');
+		};
+	if (message.content == '!пещеры') {
+		await message.channel.send('\`\`\`fix\nКарта пещер - Равнины Эйдолона:\`\`\`\nhttps://i.imgur.com/KuEU8CS.png');
+		await message.channel.send('\`\`\`fix\nКарта пещер - Долина Сфер:\`\`\`\nhttps://i.imgur.com/uBwvnZU.png');
+		};
+	
+if (message.content == '!роли' && message.channel && message.channel.type == "text" && message.member.hasPermission('ADMINISTRATOR')) {
 		let roles = '';
 		message.guild.roles.forEach(function(role) {
 			roles += `'${role.name}': '${role.id}',\n`;
 		})
 		message.channel.send(roles, {split: true});
-	}
-});
-
-const modRoles0 = ['561644395691245606'];
-const clanRoles0 = ['561644392436334593']
-
-client.on('message', message => {
-    if (message.content.startsWith(`!mute`)) {
+	};
+	
+if (message.content.startsWith(`!mute`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);
@@ -78,14 +109,9 @@ client.on('message', message => {
         })
 
         message.channel.send('Роль: **мута** - выдана!')
-    }
-});
-
-const modRoles1 = ['561644395691245606'];
-const clanRoles1 = ['561644392171962384']
-
-client.on('message', message => {
-    if (message.content.startsWith(`!ban`)) {
+    };
+	
+if (message.content.startsWith(`!ban`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);
@@ -105,14 +131,50 @@ client.on('message', message => {
         })
 
         message.channel.send('Роль: **бана** - выдана!')
-    }
-});
+    };
+	
+if (message.content.startsWith('!текст') && message.guild && message.member.hasPermission('ADMINISTRATOR')) {
+        var request = require('request').defaults({ encoding: null });
+        let buffer;
+        if (message.attachments.size > 0) {
+            request.get(message.attachments.first().url, function (err, res, buff) {
+                if (err) return console.log(err);
+                message.channel.send(message.content.slice(7), {
+                    file: buff
+                }).then(_ => {
+                    message.delete().catch(console.error);
+                });
+            });
+        } else {
+            message.channel.send(message.content.slice(7));
+            message.delete().catch(console.error);
+        }
+ };
+	
+if (message.content.startsWith(`!выдатьOS`)) {
+        let mod = false;
 
-const modRoles2 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457', '561648376567824386'];
-const clanRoles2 = ['561644399264661554']
-const guestRole2 = '561644397893124096'
+        let messageArray = message.content.split(/\s+/g);
+        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
+        if (!toRole) return message.channel.send('Укажите новобранца!')
 
-client.on('message', message => {
+        modRoles4.forEach(function(roleID) {
+            if (message.member.roles.has(roleID)) {
+                mod = true;
+            }
+        })
+
+        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
+
+        clanRoles4.forEach(function(roleID) {
+            toRole.addRole(roleID).catch(console.error)
+        })
+
+        message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
+
+        toRole.removeRole(guestRole4);
+    };
+	
     if (message.content.startsWith(`!выдатьATS`)) {
         let mod = false;
 
@@ -135,15 +197,9 @@ client.on('message', message => {
         message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
 
         toRole.removeRole(guestRole2);
-    }
-});
-
-const modRoles3 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457', '561648376567824386'];
-const clanRoles3 = ['561644401672192000']
-const guestRole3 = '561644397893124096'
-
-client.on('message', message => {
-    if (message.content.startsWith(`!выдатьBA`)) {
+    };
+	
+if (message.content.startsWith(`!выдатьBA`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);
@@ -165,45 +221,9 @@ client.on('message', message => {
         message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
 
         toRole.removeRole(guestRole3);
-    }
-});
-
-const modRoles4 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457', '561648376567824386'];
-const clanRoles4 = ['561648374781181983']
-const guestRole4 = '561644397893124096'
-
-client.on('message', message => {
-    if (message.content.startsWith(`!выдатьOS`)) {
-        let mod = false;
-
-        let messageArray = message.content.split(/\s+/g);
-        let toRole = message.guild.member(message.mentions.users.first() || message.guild.members.get(messageArray[1]));
-        if (!toRole) return message.channel.send('Укажите новобранца!')
-
-        modRoles4.forEach(function(roleID) {
-            if (message.member.roles.has(roleID)) {
-                mod = true;
-            }
-        })
-
-        if (!mod) return message.channel.send(`У Вас нет прав для выполнения данной команды`);
-
-        clanRoles4.forEach(function(roleID) {
-            toRole.addRole(roleID).catch(console.error)
-        })
-
-        message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
-
-        toRole.removeRole(guestRole4);
-    }
-});
-
-const modRoles5 = ['561644396840222741', '561644395691245606', '561644395783520267', '561644396517523457', '561648376567824386'];
-const clanRoles5 = ['562042563083894800']
-const guestRole5 = '561644397893124096'
-
-client.on('message', message => {
-    if (message.content.startsWith(`!выдатьFT`)) {
+    };
+	
+if (message.content.startsWith(`!выдатьFT`)) {
         let mod = false;
 
         let messageArray = message.content.split(/\s+/g);
@@ -225,7 +245,8 @@ client.on('message', message => {
         message.channel.send('Роли: **клана** и **участника альянса** - выданы!')
 
         toRole.removeRole(guestRole5);
-    }
+    };
+	
 });
 
 const joinedRecently = {};
@@ -261,38 +282,6 @@ client.on(
 	client.channels.get("561735236593909761")
 		.send(`**${member.user.tag}** - вышел!\nЕго id: **${member.id}**\nНа сервере **${member.guild.members.size}** - участников!`)
 );
-
-client.on("message", async (message) => {
-	if (message.content == '!команды') message.channel.send('\`\`\`fix\nСписок команд:\`\`\`\n**!команды** - \`список всех команд на сервере\`\n**!пещеры** - \`карты с пещерами\`\n**!отписка** - \`информация о написании отписки\`\n**!гонки** - \`карта с гонками\`\n**!баро** - \`время прихода баро китира\`');
-	if (message.content == '!гонки') message.channel.send('\`\`\`fix\nКарта гонок - Долина Сфер:\`\`\`\nhttps://i.imgur.com/AMHndnO.png');
-	if (message.content == '!баро') message.channel.send('В разработке');
-	if (message.content == '!отписка') {
-		await message.channel.send('\`\`\`fix\nИнформация о канале «🛵отписка»:\`\`\`\nЕсли вы по каким либо причинам не сможете играть более 15-ти дней, Вам нужно отписать об этом в чат <#561646718446206977>.\nЗапрещается не проявлять активность в игре в течении 15-ти дней без отписки. Карается - Изгнанием.\n\n\`\`\`fix\nПравила оформления отписки:\`\`\`');
-		await message.channel.send('1. Игровой никнейм:\n2. Причина отсутствия:\n3. Количество дней:\n\n`Причины и Количество дней - пишите, хотя бы, примерно. Причины типа: ХЗ - рассматриваться не будут.`\n\n\`\`\`fix\nОБЯЗАТЕЛЬНО К ПРОЧТЕНИЮ:\`\`\`');
-		await message.channel.send('Когда **вернетесь** в игру обратно - **удалите** свою отписку!\nЕсли вы **не написали** сюда отписку, то **не возмущайтесь**, если Вас **выгонят** из клана.');
-		};
-	if (message.content == '!пещеры') {
-		await message.channel.send('\`\`\`fix\nКарта пещер - Равнины Эйдолона:\`\`\`\nhttps://i.imgur.com/KuEU8CS.png');
-		await message.channel.send('\`\`\`fix\nКарта пещер - Долина Сфер:\`\`\`\nhttps://i.imgur.com/uBwvnZU.png');
-		};
-if (message.content.startsWith('!текст') && message.guild && message.member.hasPermission('ADMINISTRATOR')) {
-        var request = require('request').defaults({ encoding: null });
-        let buffer;
-        if (message.attachments.size > 0) {
-            request.get(message.attachments.first().url, function (err, res, buff) {
-                if (err) return console.log(err);
-                message.channel.send(message.content.slice(7), {
-                    file: buff
-                }).then(_ => {
-                    message.delete().catch(console.error);
-                });
-            });
-        } else {
-            message.channel.send(message.content.slice(7));
-            message.delete().catch(console.error);
-        }
-}
-});
 
 client.on('error', function(error) {
 });

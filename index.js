@@ -277,25 +277,7 @@ client.on("message", async (message) => {
 		};
 });
 
-client.on("message", (message) => {
-if (message.content.startsWith('!текст') && message.guild && message.member.hasPermission('ADMINISTRATOR')) {
-        var request = require('request').defaults({ encoding: null });
-        let buffer;
-        if (message.attachments.size > 0) {
-            request.get(message.attachments.first().url, function (err, res, buff) {
-                if (err) return console.log(err);
-                message.channel.send(message.content.slice(5), {
-                    file: buff
-                }).then(_ => {
-                    message.delete().catch(console.error);
-                });
-            });
-        } else {
-            message.channel.send(message.content.slice(7));
-            message.delete().catch(console.error);
-        }
-}
-});
+
 
 client.on('error', function(error) {
 });
